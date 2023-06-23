@@ -4,6 +4,7 @@
 
 1. `**` Basic programming: loops, conditions, variables, and tests.
 2. `**` Splitting strings, 2D arrays, parsing integers from strings, arithmetic.
+3. `**` Hashmaps (comparable objects), sets, refactoring
 
 ## Lessons Learned
 

@@ -5,6 +5,7 @@
 1. `**` Basic programming: loops, conditions, variables, and tests.
 2. `**` Splitting strings, 2D arrays, parsing integers from strings, arithmetic.
 3. `**` Hashmaps (comparable objects), sets, refactoring
+4. `**` Embarrassingly parallelizable problems, refactoring, use of existing libraries
 
 ## Lessons Learned
 
@@ -16,6 +17,8 @@ a `.go` file, but I never got comfortable with `go install` and `go get` from Gi
 in the `src\bin` directory. This is the structure I'm using for Advent of Code.
 * Calls to `dbg!` and `assert!` transfer ownership of the arguments. This means
 you need to pass references (`&`) instead of values.
+* Tests in Rust are excellent! Use `cargo test` for all your testing needs. See day 4.
+* I would be interested to go back to day 4 to do this in parallel. This would have been easy in Go.
 
 ## Documentation
 

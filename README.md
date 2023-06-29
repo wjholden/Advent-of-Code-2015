@@ -6,6 +6,7 @@
 2. `**` Splitting strings, 2D arrays, parsing integers from strings, arithmetic.
 3. `**` Hashmaps (comparable objects), sets, refactoring
 4. `**` Embarrassingly parallelizable problems, refactoring, use of existing libraries
+5. `**` Strings, unit testing, regular expressions
 
 ## Lessons Learned
 

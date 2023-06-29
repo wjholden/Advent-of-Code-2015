@@ -43,7 +43,7 @@ mod tests {
     #[test]
     fn abcdef() {
         let input = String::from("abcdef");
-        let result = search(&input);
+        let result = search(&input, 5);
         let expect = 609043;
         assert_eq!(result, expect);
     }
@@ -51,7 +51,7 @@ mod tests {
     #[test]
     fn pqrstuv() {
         let input = String::from("pqrstuv");
-        let result = search(&input);
+        let result = search(&input, 5);
         let expect = 1048970;
         assert_eq!(result, expect);
     }

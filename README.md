@@ -19,6 +19,7 @@ in the `src\bin` directory. This is the structure I'm using for Advent of Code.
 you need to pass references (`&`) instead of values.
 * Tests in Rust are excellent! Use `cargo test` for all your testing needs. See day 4.
 * I would be interested to go back to day 4 to do this in parallel. This would have been easy in Go.
+* Looks like the compiler will (at least, by default) completely ignore errors (including syntax errors) in your tests.
 
 ## Documentation
 

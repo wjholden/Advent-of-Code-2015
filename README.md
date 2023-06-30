@@ -7,6 +7,7 @@
 3. `**` Hashmaps (comparable objects), sets, refactoring
 4. `**` Embarrassingly parallelizable problems, refactoring, use of existing libraries
 5. `**` Strings, unit testing, regular expressions
+6. `**` Mutable state, object-oriented programming, procedural programming, polymorphism, abstraction
 
 ## Lessons Learned
 

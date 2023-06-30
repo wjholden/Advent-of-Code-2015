@@ -33,4 +33,5 @@ rustup doc for
 ```
 
 * [The Rust Programming Language](https://doc.rust-lang.org/book/)
+* [Rust By Example](https://doc.rust-lang.org/rust-by-example/)
 * [Effective Rust](https://www.lurklurk.org/effective-rust/)

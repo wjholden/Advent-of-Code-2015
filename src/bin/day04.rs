@@ -5,7 +5,7 @@ fn main() {
     println!("Part 1: {}", search("ckczppom", 6));
 }
 
-pub fn search(key: &str, zeros: u8) -> u64 {
+fn search(key: &str, zeros: u8) -> u64 {
     if !(zeros == 5 || zeros == 6) {
         panic!("Can only search for 5 or 6 zeros.");
     }

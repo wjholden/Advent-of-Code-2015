@@ -5,13 +5,6 @@ fn main() {
     let puzzle = fs::read_to_string("day02.txt").unwrap();
 
     println!("Part 1: {}", part1(&puzzle));
-
-    // Part 2 endeavors for a more functional approach. We'll take the lines
-    // (which is delightfully easy in Rust, thanks to the `lines()` function!),
-    // then convert the line to an integer vector. We'll use a custom function
-    // get the smallest and next-to-smallest values from the vector.
-    // Finally, we'll use a one-liner with `fold` to take the product (which
-    // would have been better with `Vec.iter().product()`, but too late).
     println!("Part 2: {}", part2(&puzzle));
 
     // Remember the magical `dbg!` macro for easy debugging. Remember also

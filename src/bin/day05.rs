@@ -1,14 +1,15 @@
 use regex::Regex;
+use rayon::prelude::*;
 
 fn main() {
     let lines = read_input();
     let n1: u64 = lines
-        .iter()
+        .par_iter()
         .map(|line| if nice1(line) { 1 } else { 0 })
         .sum();
     println!("Part 1: {n1}");
     let n2: u64 = lines
-        .iter()
+        .par_iter()
         .map(|line| if nice2(line) { 1 } else { 0 })
         .sum();
     println!("Part 2: {n2}");

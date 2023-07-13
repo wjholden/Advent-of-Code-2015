@@ -178,7 +178,7 @@ mod tests {
     }
 
     #[test]
-    fn bringness_million() {
+    fn brightness_million() {
         let mut lights = [Light {
             state: State::Off,
             brightness: 0,

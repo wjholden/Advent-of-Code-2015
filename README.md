@@ -8,6 +8,7 @@
 4. `**` Embarrassingly parallelizable problems, refactoring, use of existing libraries
 5. `**` Strings, unit testing, regular expressions
 6. `**` Mutable state, object-oriented programming, procedural programming, polymorphism, abstraction
+7. `**` Parsing, dynamic programming, `O(2^n)`
 
 ## Lessons Learned
 
@@ -22,6 +23,9 @@ you need to pass references (`&`) instead of values.
 * Tests in Rust are excellent! Use `cargo test` for all your testing needs. See day 4.
 * I would be interested to go back to day 4 to do this in parallel. This would have been easy in Go.
 * Looks like the compiler will (at least, by default) completely ignore errors (including syntax errors) in your tests.
+* Like Go, you can declare a variable in [`if let`](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html). For example: `if let Error(e) = f(x) { g(e); }`.
+* Lifetime annotations might be necessary when mutating hash maps in a function.
+* The `memoize` library was not as effortless as `@cache` in Python.
 
 ## Documentation
 
@@ -36,3 +40,4 @@ rustup doc for
 * [The Rust Programming Language](https://doc.rust-lang.org/book/)
 * [Rust By Example](https://doc.rust-lang.org/rust-by-example/)
 * [Effective Rust](https://www.lurklurk.org/effective-rust/)
+* [From Julia to Rust](https://miguelraz.github.io/blog/juliatorust/)

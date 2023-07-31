@@ -8,7 +8,8 @@
 4. `**` Embarrassingly parallelizable problems, refactoring, use of existing libraries
 5. `**` Strings, unit testing, regular expressions
 6. `**` Mutable state, object-oriented programming, procedural programming, polymorphism, abstraction
-7. `**` Parsing, dynamic programming, `O(2^n)`
+7. `**` Parsing, dynamic programming, $O(2^n)$
+8. `**` String encoding
 
 ## Lessons Learned
 

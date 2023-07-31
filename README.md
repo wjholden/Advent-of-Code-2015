@@ -25,6 +25,7 @@ you need to pass references (`&`) instead of values.
 * I would be interested to go back to day 4 to do this in parallel. This would have been easy in Go.
 * Looks like the compiler will (at least, by default) completely ignore errors (including syntax errors) in your tests.
 * Like Go, you can declare a variable in [`if let`](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html). For example: `if let Error(e) = f(x) { g(e); }`.
+* You can also `while let`, which avoids an implicit move of the iterator inside a `for` loop (see day 8).
 * Lifetime annotations might be necessary when mutating hash maps in a function.
 * The `memoize` library was not as effortless as `@cache` in Python.
 * [Rayon](https://docs.rs/rayon/latest/rayon/), on the other hand, is amazing! You should be able to replace `iter` with `par_iter` for easy parallelization.

@@ -27,6 +27,7 @@ you need to pass references (`&`) instead of values.
 * Like Go, you can declare a variable in [`if let`](https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html). For example: `if let Error(e) = f(x) { g(e); }`.
 * Lifetime annotations might be necessary when mutating hash maps in a function.
 * The `memoize` library was not as effortless as `@cache` in Python.
+* [Rayon](https://docs.rs/rayon/latest/rayon/), on the other hand, is amazing! You should be able to replace `iter` with `par_iter` for easy parallelization.
 
 ## Documentation
 

@@ -14,6 +14,8 @@ fn strlen(s: &str) -> usize {
 fn count(s: &str) -> usize {
     let mut n = 0;
     let mut chars = s.chars().peekable();
+    // Thank you to https://stackoverflow.com/a/72787440/5459668 for a great
+    // technique to get around borrowing the iterator inside the loop.
     while let Some(c) = chars.next() {
         n += match c {
             '"' => 0,

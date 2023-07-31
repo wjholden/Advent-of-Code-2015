@@ -9,7 +9,7 @@
 5. `**` Strings, unit testing, regular expressions
 6. `**` Mutable state, object-oriented programming, procedural programming, polymorphism, abstraction
 7. `**` Parsing, dynamic programming, $O(2^n)$
-8. `**` String encoding
+8. `**` String encoding, look-ahead parsers (peeking)
 
 ## Lessons Learned
 

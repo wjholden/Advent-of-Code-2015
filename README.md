@@ -10,6 +10,7 @@
 6. `**` Mutable state, object-oriented programming, procedural programming, polymorphism, abstraction
 7. `**` Parsing, dynamic programming, $O(2^n)$
 8. `**` String encoding, look-ahead parsers (peeking)
+9. `**` Graphs, permutations
 
 ## Lessons Learned
 

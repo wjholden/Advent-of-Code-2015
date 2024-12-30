@@ -1,5 +1,5 @@
 fn main() {
-    let puzzle = std::fs::read_to_string("day08.txt").unwrap();
+    let puzzle = std::fs::read_to_string("puzzles/day08.txt").unwrap();
     let string_length: usize = puzzle.lines().map(count).sum();
     let memory_length: usize = puzzle.lines().map(strlen).sum();
     let encode_length: usize = puzzle.lines().map(encoded_length).sum();

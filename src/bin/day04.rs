@@ -1,8 +1,9 @@
 use md5::{Digest, Md5};
 
 fn main() {
-    println!("Part 1: {}", search("ckczppom", 5));
-    println!("Part 1: {}", search("ckczppom", 6));
+    let puzzle = include_str!("../../puzzles/day04.txt");
+    println!("Part 1: {}", search(puzzle, 5));
+    println!("Part 2: {}", search(puzzle, 6));
 }
 
 fn search(key: &str, zeros: u8) -> u64 {

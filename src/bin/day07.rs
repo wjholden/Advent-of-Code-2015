@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 fn main() {
-    let puzzle = std::fs::read_to_string("day07.txt").unwrap();
+    let puzzle = std::fs::read_to_string("puzzles/day07.txt").unwrap();
     let mut h = parse(&puzzle);
     let a = get("a", &h);
     println!("Part 1: {a}");

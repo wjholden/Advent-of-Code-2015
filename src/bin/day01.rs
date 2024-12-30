@@ -1,7 +1,7 @@
 use std::fs;
 
 fn main() {
-    let puzzle = fs::read_to_string("day01.txt").unwrap();
+    let puzzle = fs::read_to_string("puzzles/day01.txt").unwrap();
 
     println!("Part 1: {}",  floor(&puzzle).0);
     println!("Part 2: {}", floor(&puzzle).1);

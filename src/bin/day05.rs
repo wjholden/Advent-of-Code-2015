@@ -82,7 +82,7 @@ fn contains_repeat_with_middle(s: &str) -> bool {
 // Apparently this is bad:
 // https://doc.rust-lang.org/rust-by-example/std_misc/file/read_lines.html
 fn read_input() -> Vec<String> {
-    std::fs::read_to_string("day05.txt")
+    std::fs::read_to_string("puzzles/day05.txt")
         .unwrap()
         .lines()
         .map(String::from)

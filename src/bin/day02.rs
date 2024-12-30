@@ -2,7 +2,7 @@ use std::cmp;
 use std::fs;
 
 fn main() {
-    let puzzle = fs::read_to_string("day02.txt").unwrap();
+    let puzzle = fs::read_to_string("puzzles/day02.txt").unwrap();
 
     println!("Part 1: {}", part1(&puzzle));
     println!("Part 2: {}", part2(&puzzle));

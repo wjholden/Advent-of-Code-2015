@@ -49,7 +49,7 @@ fn main() {
         brightness: 0,
     }; 1_000_000]
         .to_vec();
-    let puzzle = std::fs::read_to_string("day06.txt").unwrap();
+    let puzzle = std::fs::read_to_string("puzzles/day06.txt").unwrap();
     for line in puzzle.lines() {
         let (action, x1, y1, x2, y2) = parse_line(line);
         set_range(&mut lights, action, x1, y1, x2, y2);

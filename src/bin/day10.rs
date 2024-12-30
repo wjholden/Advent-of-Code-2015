@@ -41,7 +41,7 @@ mod day10 {
     use super::*;
 
     #[test]
-    fn test1() {
+    fn test() {
         let mut x = vec![1];
         
         x = look_and_say(x);
@@ -58,10 +58,5 @@ mod day10 {
 
         x = look_and_say(x);
         assert_eq!(x, [3,1,2,2,1,1]);
-    }
- 
-    #[test]
-    fn test2() {
-        //assert_eq!(part2(SAMPLE), 0)
-    }   
+    }  
 }

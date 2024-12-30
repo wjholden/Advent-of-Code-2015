@@ -11,6 +11,8 @@
 7. `**` Parsing, dynamic programming, $O(2^n)$
 8. `**` String encoding, look-ahead parsers (peeking)
 9. `**` Graphs, permutations
+10. `**` Automata, peeking, integer sequences
+11. `**` Password complexity, radix overflow, test cases, trim your inputs
 
 ## Lessons Learned
 
@@ -30,6 +32,8 @@ you need to pass references (`&`) instead of values.
 * Lifetime annotations might be necessary when mutating hash maps in a function.
 * The `memoize` library was not as effortless as `@cache` in Python.
 * [Rayon](https://docs.rs/rayon/latest/rayon/), on the other hand, is amazing! You should be able to replace `iter` with `par_iter` for easy parallelization.
+* `String` and `&str` probably made my day 11 solution significantly slower than it would have been on a byte array.
+Maybe next time you have a string problem like this, consider `Vec<u8>` for in-place character mutation.
 
 ## Documentation
 

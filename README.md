@@ -13,6 +13,7 @@
 9. `**` Graphs, permutations
 10. `**` Automata, peeking, integer sequences
 11. `**` Password complexity, radix overflow, test cases, trim your inputs
+12. `**` JSON. This is going to be too difficult in Rust, so I'm using Julia instead.
 
 ## Lessons Learned
 
@@ -34,6 +35,10 @@ you need to pass references (`&`) instead of values.
 * [Rayon](https://docs.rs/rayon/latest/rayon/), on the other hand, is amazing! You should be able to replace `iter` with `par_iter` for easy parallelization.
 * `String` and `&str` probably made my day 11 solution significantly slower than it would have been on a byte array.
 Maybe next time you have a string problem like this, consider `Vec<u8>` for in-place character mutation.
+* [jlrs](https://github.com/Taaitaaiger/jlrs) is a potential means of interfacing Julia with Rust,
+but it looks pretty complicated and I found it easier to just invoke the command.
+* A surprise with invoking the command is that you don't want to provide input as an argument.
+Luckily, Julia's `JSON3.read` can automatically guess that short input strings are filenames.
 
 ## Documentation
 

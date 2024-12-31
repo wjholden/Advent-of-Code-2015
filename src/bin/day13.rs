@@ -4,7 +4,7 @@ fn main() {
     // println!("Part 2: {}", part2(&puzzle));
 }
 
-fn part1(input: &str) -> usize {
+fn part1(_input: &str) -> usize {
     0
 }
 

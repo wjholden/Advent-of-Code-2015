@@ -36,6 +36,7 @@ fn part2(input: &str) -> i32 {
         // In general, if the number of permutations is n!, then the number of
         // *circuluar permutations* is (n-1)!.
         // https://mathworld.wolfram.com/CircularPermutation.html
+        // https://www.reddit.com/r/adventofcode/comments/3wm0oy/comment/cxx80pp/
         name_permutation.push("me");    
         happiness(&name_permutation, &relations)
     }).max().unwrap()

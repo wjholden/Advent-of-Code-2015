@@ -14,6 +14,7 @@
 10. `**` Automata, peeking, integer sequences
 11. `**` Password complexity, radix overflow, test cases, trim your inputs
 12. `**` JSON. This is going to be too difficult in Rust, so I'm using Julia instead.
+13. `**` Combinatorics, circular arrays. Now I have a parser (Nom), so I'm using it.
 
 ## Lessons Learned
 

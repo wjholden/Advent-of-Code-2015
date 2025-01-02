@@ -18,11 +18,27 @@ fn part1(input: &str) -> i32 {
 
 fn part2(input: &str) -> i32 {
     let relations = parse(input);
-    let mut names: HashSet<&str> = relations.iter().map(|((u,_),_)| *u).collect();
-    names.insert("Me");
+    let names: HashSet<&str> = relations.iter().map(|((u,_),_)| *u).collect();
     let n = names.len();
-    names.into_iter().permutations(n).map(|names| happiness(&names, &relations)).max().unwrap()
-
+    names.into_iter().permutations(n).map(|mut name_permutation| {
+        // We can make this substantially faster by only inserting ourselves at
+        // the head of the table. Our original set of permutations was actually
+        // very wasteful. The *circular* order of a,b,c = b,c,a = c,a,b. The
+        // basic permutations function doesn't make any effort to de-duplicate.
+        // The optimization doesn't go very far: we can only fix one element.
+        // For four elements, we can fix the first element and still get
+        // 1) a,b,c,d
+        // 2) a,b,d,c
+        // 3) a,c,b,d
+        // 4) a,c,d,b
+        // 5) a,d,b,c
+        // 6) a,d,c,b
+        // In general, if the number of permutations is n!, then the number of
+        // *circuluar permutations* is (n-1)!.
+        // https://mathworld.wolfram.com/CircularPermutation.html
+        name_permutation.push("me");    
+        happiness(&name_permutation, &relations)
+    }).max().unwrap()
 }
 
 fn happiness(names: &[&str], relations: &HashMap<(&str, &str), i32>) -> i32 {

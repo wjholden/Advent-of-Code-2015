@@ -16,3 +16,6 @@ Cargo.lock
 day*.txt
 puzzles/
 *.exe
+
+.vscode/
+.idea/

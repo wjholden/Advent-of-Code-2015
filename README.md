@@ -15,6 +15,7 @@
 11. `**` Password complexity, radix overflow, test cases, trim your inputs
 12. `**` JSON. This is going to be too difficult in Rust, so I'm using Julia instead.
 13. `**` [Circular permutations](https://mathworld.wolfram.com/CircularPermutation.html). Also, now I have a parser (nom).
+14. `**` Don't be clever, OOP, mutability
 
 ## Lessons Learned
 
@@ -40,6 +41,7 @@ Maybe next time you have a string problem like this, consider `Vec<u8>` for in-p
 but it looks pretty complicated and I found it easier to just invoke the command.
 * A surprise with invoking the command is that you don't want to provide input as an argument.
 Luckily, Julia's `JSON3.read` can automatically guess that short input strings are filenames.
+* I like using VSCode more than RustRover, but RustRover has a better debugger.
 
 ## Documentation
 

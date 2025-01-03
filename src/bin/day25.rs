@@ -1,15 +1,15 @@
 fn main() {
-    let puzzle = include_str!("../../puzzles/day99.txt").trim();
+    let puzzle = include_str!("../../puzzles/day25.txt").trim();
     println!("Part 1: {}", part1(&puzzle));
     // println!("Part 2: {}", part2(&puzzle));
 }
 
-fn part1(input: &str) -> usize {
+fn part1(_input: &str) -> usize {
     0
 }
 
 #[cfg(test)]
-mod day99 {
+mod day25 {
     use std::assert_eq;
 
     use super::*;

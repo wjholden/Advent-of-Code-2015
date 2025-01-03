@@ -30,7 +30,6 @@ fn increment(input: &str) -> String {
             (false, _) => (),
         }
     }
-    assert_eq!(s.len(), 8);
     s.iter().collect()
 }
 

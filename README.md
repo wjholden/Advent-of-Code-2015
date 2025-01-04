@@ -16,6 +16,7 @@
 12. `**` JSON. This is going to be too difficult in Rust, so I'm using Julia instead.
 13. `**` [Circular permutations](https://mathworld.wolfram.com/CircularPermutation.html). Also, now I have a parser (nom).
 14. `**` Don't be clever, OOP, mutability
+15. `* ` Linear algebra, gradient descent, constrained optimization
 
 ## Lessons Learned
 

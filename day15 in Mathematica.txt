@@ -1,0 +1,19 @@
+(* Part 1 example *)
+A1 := {{-1,2},{-2,3},{6,-2},{3,-1}}
+example := Maximize[{Det[DiagonalMatrix[Clip[A1 . {x,y}, {0, Infinity}]]], x+y==100, Element[{x,y}, NonNegativeIntegers]}, {x,y}] // N
+Apply[Times, A1 . IntegerPart[Values[example[[2]]]]] == 62842880
+
+(* Part 1 puzzle *)
+A2 := {{4,0,-1,0},{-2,5,0,0},{0,-1,5,-2},{0,0,0,2}}
+puzzle1 := Maximize[{Det[DiagonalMatrix[Clip[A2 . {x,y,z,w}, {0, Infinity}]]], x+y+z+w==100, Element[{x,y,z,w}, NonNegativeIntegers]}, {x,y,z,w}] // N
+Apply[Times, A2 . IntegerPart[Values[puzzle1[[2]]]]]
+(* Looks like we're burned by a precision error. The correct answer is 18965440. *)
+
+(* Part 2 example *)
+Solve[{8*x+3y==500, x + y == 100}, {x,y}, NonNegativeIntegers]
+
+(* Part 2 puzzle *)
+(* There is no unique solution for {x,y,z,w}, so we're going to have to maximize again. *)
+Solve[{5x+8y+6z+w==500, x+y+z+w == 100}, {x,y,z,w}, NonNegativeIntegers]
+puzzle2 := Maximize[{Det[DiagonalMatrix[Clip[A2 . {x,y,z,w}, {0, Infinity}]]], 5x+8y+6z+w==500, x+y+z+w==100, Element[{x,y,z,w}, NonNegativeIntegers]}, {x,y,z,w}] // N
+Apply[Times, A2 . IntegerPart[Values[puzzle2[[2]]]]]

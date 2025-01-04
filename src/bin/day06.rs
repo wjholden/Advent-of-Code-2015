@@ -1,4 +1,5 @@
 use regex::Regex;
+use lazy_static::lazy_static;
 
 #[derive(Copy, Clone)]
 enum State {
@@ -103,7 +104,9 @@ fn parse_line(s: &str) -> (Action, usize, usize, usize, usize) {
         panic!("Invalid action in command")
     };
 
-    let re = Regex::new(r"(\d+),(\d+) through (\d+),(\d+)").unwrap();
+    lazy_static! {
+        static ref re: Regex = Regex::new(r"(\d+),(\d+) through (\d+),(\d+)").unwrap();
+    }
     let cap = re.captures(s).unwrap();
     let x1 = cap.get(1).unwrap().as_str();
     let y1 = cap.get(2).unwrap().as_str();

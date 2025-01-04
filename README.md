@@ -43,6 +43,7 @@ but it looks pretty complicated and I found it easier to just invoke the command
 * A surprise with invoking the command is that you don't want to provide input as an argument.
 Luckily, Julia's `JSON3.read` can automatically guess that short input strings are filenames.
 * I like using VSCode more than RustRover, but RustRover has a better debugger.
+* [nalgebra](https://www.nalgebra.org/) is fast and usable.
 
 ## Documentation
 

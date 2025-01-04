@@ -6,7 +6,7 @@ use advent_of_code_2015::ConstantSum;
 fn main() {
     let puzzle = include_str!("../../puzzles/day15.txt").trim();
     println!("Part 1: {}", part1(&puzzle));
-    //println!("Part 2: {}", part2(&puzzle));
+    println!("Part 2: {}", part2(&puzzle));
 }
 
 fn part1(input: &str) -> i32 {
@@ -35,7 +35,7 @@ fn part1(input: &str) -> i32 {
             if any(new_x.iter(), |&i| i < 0) {
                 continue
             }
-            let ds: i32 = (&a * &new_x).into_iter().filter(|&&p| p >= 0).product();
+            let ds = (&a * &new_x).into_iter().filter(|&&p| p >= 0).product();
             if ds > max_ds {
                 max_move = new_x;
                 max_ds = ds;
@@ -57,16 +57,24 @@ fn part2(input: &str) -> i32 {
     // us knowing it.
     let a = parse_properties(input);
     let ingredients = a.ncols();
+    let c = parse_calories(input);
 
-    for x in 0..=(100i32.pow(ingredients as u32)) {
-        let x: Vec<i32> = (0..ingredients).map(|i| (x / 100i32.pow(i as u32)) % 100).collect();
-        if x.iter().sum() > 100 {
+    let mut max_score = 0;
+    
+    for x in ConstantSum::new(ingredients, 100) {
+        assert_eq!(x.iter().sum::<i32>(), 100); // it's supposed to be...
+        assert_eq!(x.len(), ingredients);
+
+        let x = DVector::from_vec(x);
+        if x.dot(&c) != 500 {
             continue
         }
-        
+
+        let score = (&a * &x).into_iter().filter(|&&p| p >= 0).product();
+        max_score = max_score.max(score);
     }
 
-    0
+    max_score
 }
 
 fn parse_properties(input: &str) -> DMatrix<i32> {
@@ -79,10 +87,18 @@ fn parse_properties(input: &str) -> DMatrix<i32> {
     a
 }
 
+fn parse_calories(input: &str) -> DVector<i32> {
+    let re = Regex::new(r"calories (?P<calories>\d+)").unwrap();
+    let mut nrows = 0;
+    let c = re.captures_iter(input).map(|cap| {
+        nrows += 1;
+        cap["calories"].parse().unwrap()
+    }).collect();
+    DVector::from_vec( c)
+}
+
 #[cfg(test)]
 mod day15 {
-    use std::assert_eq;
-
     use super::*;
 
     const SAMPLE: &str = "Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8
@@ -95,6 +111,6 @@ Cinnamon: capacity 2, durability 3, flavor -2, texture -1, calories 3";
  
     #[test]
     fn test2() {
-        //assert_eq!(part2(SAMPLE), 0)
+        assert_eq!(part2(SAMPLE), 57600000)
     }   
 }

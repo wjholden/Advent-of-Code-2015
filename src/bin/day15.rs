@@ -1,5 +1,6 @@
 use itertools::{any, Itertools};
 use nalgebra::{DMatrix, DVector};
+use rayon::iter::{ParallelBridge, ParallelIterator};
 use regex::Regex;
 use advent_of_code_2015::ConstantSum;
 
@@ -61,6 +62,9 @@ fn part2(input: &str) -> i32 {
 
     let mut max_score = 0;
     
+    // You would think that Rayon's par_bridge would make this faster by
+    // parallelization, but experimentally no -- our solution went from ~250ms
+    // single-threaded to ~350ms multi-threaded.
     for x in ConstantSum::new(ingredients, 100) {
         assert_eq!(x.iter().sum::<i32>(), 100); // it's supposed to be...
         assert_eq!(x.len(), ingredients);

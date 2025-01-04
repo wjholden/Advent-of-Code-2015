@@ -1,6 +1,5 @@
 use itertools::{any, Itertools};
 use nalgebra::{DMatrix, DVector};
-use rayon::iter::{ParallelBridge, ParallelIterator};
 use regex::Regex;
 use advent_of_code_2015::ConstantSum;
 
@@ -61,6 +60,7 @@ fn part2(input: &str) -> i32 {
     let c = parse_calories(input);
 
     let mut max_score = 0;
+    let mut best_recipe = DVector::zeros(ingredients);
     
     // You would think that Rayon's par_bridge would make this faster by
     // parallelization, but experimentally no -- our solution went from ~250ms
@@ -75,9 +75,13 @@ fn part2(input: &str) -> i32 {
         }
 
         let score = (&a * &x).into_iter().filter(|&&p| p >= 0).product();
-        max_score = max_score.max(score);
+        if score > max_score {
+            max_score = score;
+            best_recipe = x;
+        }
     }
 
+    print!("{best_recipe}");
     max_score
 }
 

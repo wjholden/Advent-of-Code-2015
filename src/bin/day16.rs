@@ -2,9 +2,14 @@ use lazy_static::lazy_static;
 use regex::{CaptureMatches, Regex};
 use std::{collections::HashMap, error::Error};
 
+enum Part {
+    One,
+    Two,
+}
+
 fn main() -> Result<(), Box<dyn Error>> {
-    println!("Part 1: {}", part1()?);
-    println!("Part 2: {}", part2()?);
+    println!("Part 1: {}", solve(Part::One)?);
+    println!("Part 2: {}", solve(Part::Two)?);
     Ok(())
 }
 
@@ -16,29 +21,7 @@ fn sues() -> CaptureMatches<'static, 'static> {
     re.captures_iter(include_str!("../../puzzles/day16.txt"))
 }
 
-fn part1() -> Result<&'static str, Box<dyn Error>> {
-    let constraints: HashMap<&str, u8> = parse_constraints();
-    for cap in sues() {
-        let n = cap.get(1).unwrap().as_str();
-        let k1 = cap.get(2).unwrap().as_str();
-        let v1 = cap.get(3).unwrap().as_str().parse()?;
-        let k2 = cap.get(4).unwrap().as_str();
-        let v2 = cap.get(5).unwrap().as_str().parse()?;
-        let k3 = cap.get(6).unwrap().as_str();
-        let v3 = cap.get(7).unwrap().as_str().parse()?;
-        if *constraints.get(k1).unwrap() == v1
-            && *constraints.get(k2).unwrap() == v2
-            && *constraints.get(k3).unwrap() == v3
-        {
-            return Ok(n);
-        }
-    }
-    // https://stackoverflow.com/a/55125216/5459668
-    // Could also do Err("message".into())
-    Err("No Sue found matching constraints")?
-}
-
-fn part2() -> Result<&'static str, Box<dyn Error>> {
+fn solve(part: Part) -> Result<&'static str, Box<dyn Error>> {
     let constraints: HashMap<&str, u8> = parse_constraints();
     'outer: for cap in sues() {
         let n = cap.get(1).unwrap().as_str();
@@ -51,11 +34,9 @@ fn part2() -> Result<&'static str, Box<dyn Error>> {
 
         for (k, v) in [(k1, v1), (k2, v2), (k3, v3)] {
             let constraint_v = *constraints.get(k).unwrap();
-            let m = match k {
-                "cats" => constraint_v < v,
-                "trees" => constraint_v < v,
-                "pomeranians" => constraint_v > v,
-                "goldfish" => constraint_v > v,
+            let m = match (&part, k) {
+                (Part::Two, "cats") | (Part::Two, "trees") => constraint_v < v,
+                (Part::Two, "pomeranians") | (Part::Two, "goldfish") => constraint_v > v,
                 _ => constraint_v == v,
             };
             if !m {

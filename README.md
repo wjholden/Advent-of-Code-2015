@@ -46,6 +46,7 @@ Luckily, Julia's `JSON3.read` can automatically guess that short input strings a
 * I like using VSCode more than RustRover, but RustRover has a better debugger.
 * [nalgebra](https://www.nalgebra.org/) is fast and usable.
 * Multithreading with Rayon is very cool, but it might not always help. In day 15, it actually made things slower.
+* You can separate `match` cases to the same arm with `|`.
 
 ## Documentation
 

@@ -34,12 +34,11 @@ fn solve(part: Part) -> Result<&'static str, Box<dyn Error>> {
 
         for (k, v) in [(k1, v1), (k2, v2), (k3, v3)] {
             let constraint_v = *constraints.get(k).unwrap();
-            let m = match (&part, k) {
-                (Part::Two, "cats") | (Part::Two, "trees") => constraint_v < v,
-                (Part::Two, "pomeranians") | (Part::Two, "goldfish") => constraint_v > v,
+            if !match (&part, k) {
+                (Part::Two, "cats" | "trees") => constraint_v < v,
+                (Part::Two, "pomeranians" | "goldfish") => constraint_v > v,
                 _ => constraint_v == v,
-            };
-            if !m {
+            } {
                 continue 'outer;
             }
         }

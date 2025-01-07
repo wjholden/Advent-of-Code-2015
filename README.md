@@ -48,6 +48,7 @@ Luckily, Julia's `JSON3.read` can automatically guess that short input strings a
 * [nalgebra](https://www.nalgebra.org/) is fast and usable.
 * Multithreading with Rayon is very cool, but it might not always help. In day 15, it actually made things slower.
 * You can separate `match` cases to the same arm with `|`.
+* Looks like Rust does have Java-style method references. For example, `map(Vec::len)`.
 
 ## Documentation
 

@@ -18,6 +18,7 @@
 14. `**` Don't be clever, OOP, mutability
 15. `**` Linear algebra, gradient descent, constrained optimization
 16. `**` Constraint satisfaction
+17. `**` Superficial Knapsack problem, combinatorics
 
 ## Lessons Learned
 

@@ -19,6 +19,7 @@
 15. `**` Linear algebra, gradient descent, constrained optimization
 16. `**` Constraint satisfaction
 17. `**` Superficial Knapsack problem, combinatorics
+18. `**` Conway's Game of Life, parallelization surprisingly doesn't help
 
 ## Lessons Learned
 

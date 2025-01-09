@@ -1,6 +1,6 @@
 cargo build --release
 
-1..19 | ForEach-Object -Parallel {
+1..20 | ForEach-Object -Parallel {
     $bin = "target/release/day{0:d2}.exe" -f $_;
     if (Test-Path -Path $bin) {
         $t = (Measure-Command { & $bin }).TotalMilliseconds;

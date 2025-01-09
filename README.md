@@ -21,6 +21,7 @@
 17. `**` Superficial Knapsack problem, combinatorics
 18. `**` Conway's Game of Life, parallelization surprisingly doesn't help
 19. `**` [Grammars](https://www.reddit.com/r/adventofcode/comments/3xflz8/comment/cy4etju/#s), not actually a trie problem
+20. `**` [Integer sequences](https://oeis.org/A000203)
 
 ## Lessons Learned
 

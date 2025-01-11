@@ -22,7 +22,11 @@
 18. `**` Conway's Game of Life, parallelization surprisingly doesn't help
 19. `**` [Grammars](https://www.reddit.com/r/adventofcode/comments/3xflz8/comment/cy4etju/#s), not actually a trie problem
 20. `**` [Integer sequences](https://oeis.org/A000203)
-21. `**` RPG, combinatorics, functional approach works better than expected
+21. `**` RPG, combinatorics (surprisingly small), functional approach works better than expected
+22. `**` Another RPG! Combinatorics with larger $n$, BFS works with greedy approach where DFS is intractable.
+23. `  ` 
+24. `  ` 
+25. `  ` 
 
 ## Lessons Learned
 

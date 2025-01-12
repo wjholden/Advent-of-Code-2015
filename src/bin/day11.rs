@@ -1,6 +1,6 @@
 fn main() {
     let puzzle = include_str!("../../puzzles/day11.txt").trim();
-    let part1 = next_password(&puzzle);
+    let part1 = next_password(puzzle);
     let part2 = next_password(&part1);
     println!("Part 1: {}", part1); // cqjxppqrr wrong
     println!("Part 2: {}", part2);

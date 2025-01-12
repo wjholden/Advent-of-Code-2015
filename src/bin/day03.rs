@@ -38,9 +38,8 @@ fn part2(puzzle: &str) -> usize {
     let mut ry = 0;
 
     locations.insert((0, 0));
-    let mut i = 0;
 
-    for c in puzzle.chars() {
+    for (i, c) in puzzle.chars().enumerate() {
         let x = if i % 2 == 0 { &mut sx } else { &mut rx };
         let y = if i % 2 == 0 { &mut sy } else { &mut ry };
         match c {
@@ -52,7 +51,6 @@ fn part2(puzzle: &str) -> usize {
         }
         let (x, y) = (*x, *y);
         locations.insert((x, y));
-        i += 1;
     }
     locations.len()
 }

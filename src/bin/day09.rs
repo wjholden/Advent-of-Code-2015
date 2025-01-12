@@ -5,8 +5,8 @@ use std::collections::HashSet;
 
 fn main() {
     let puzzle = include_str!("../../puzzles/day09.txt");
-    println!("Part 1: {}", min_cost(&puzzle));
-    println!("Part 2: {}", max_cost(&puzzle));
+    println!("Part 1: {}", min_cost(puzzle));
+    println!("Part 2: {}", max_cost(puzzle));
 }
 
 fn vertices(s: &str) -> HashSet<&str> {

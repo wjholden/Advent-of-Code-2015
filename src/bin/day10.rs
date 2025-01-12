@@ -1,8 +1,8 @@
 // https://oeis.org/A005150
 fn main() {
     let puzzle = include_str!("../../puzzles/day10.txt");
-    println!("Part 1: {}", iterate(&puzzle, 40));
-    println!("Part 2: {}", iterate(&puzzle, 50));
+    println!("Part 1: {}", iterate(puzzle, 40));
+    println!("Part 2: {}", iterate(puzzle, 50));
 }
 
 fn iterate(input: &str, iterations: u8) -> usize {

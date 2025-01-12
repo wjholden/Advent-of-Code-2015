@@ -5,8 +5,8 @@ use nom::{branch::alt, bytes::complete::{tag, take_until, take_while}, multi::ma
 
 fn main() {
     let puzzle = include_str!("../../puzzles/day13.txt").trim();
-    println!("Part 1: {}", part1(&puzzle));
-    println!("Part 2: {}", part2(&puzzle));
+    println!("Part 1: {}", part1(puzzle));
+    println!("Part 2: {}", part2(puzzle));
 }
 
 fn part1(input: &str) -> i32 {

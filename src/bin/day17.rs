@@ -2,7 +2,7 @@ use std::sync::mpsc::{self, Sender};
 
 fn main() {
     let puzzle = include_str!("../../puzzles/day17.txt").trim();
-    let (part1, part2) = solve(150, &puzzle);
+    let (part1, part2) = solve(150, puzzle);
     println!("Part 1: {}", part1);
     println!("Part 2: {}", part2);
 }
@@ -19,7 +19,7 @@ fn combinations(
     if total == 0 {
         tx.send(solution.len()).unwrap();
         1
-    } else if containers.len() == 0 {
+    } else if containers.is_empty() {
         0
     } else {
         let head = containers[0];
@@ -50,11 +50,13 @@ fn solve(total: u8, input: &str) -> (u16, usize) {
     let mut min = usize::MAX;
     let mut part2 = 0;
     for solution in rx.into_iter() {
-        if solution == min {
-            part2 += 1;
-        } else if solution < min {
-            min = solution;
-            part2 = 1;
+        match solution.cmp(&min) {
+            std::cmp::Ordering::Less => {
+                min = solution;
+                part2 = 1   
+            },
+            std::cmp::Ordering::Equal => part2 += 1,
+            std::cmp::Ordering::Greater => (),
         }
     }
 

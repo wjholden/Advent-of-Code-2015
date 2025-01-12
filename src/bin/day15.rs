@@ -5,8 +5,8 @@ use advent_of_code_2015::ConstantSumSeq;
 
 fn main() {
     let puzzle = include_str!("../../puzzles/day15.txt").trim();
-    println!("Part 1: {}", part1(&puzzle));
-    println!("Part 2: {}", part2(&puzzle));
+    println!("Part 1: {}", part1(puzzle));
+    println!("Part 2: {}", part2(puzzle));
 }
 
 fn part1(input: &str) -> i32 {
@@ -87,12 +87,11 @@ fn part2(input: &str) -> i32 {
 
 fn parse_properties(input: &str) -> DMatrix<i32> {
     let re = Regex::new(r"capacity (?P<a>-?\d+), durability (?P<b>-?\d+), flavor (?P<c>-?\d+), texture (?P<d>-?\d+),").unwrap();
-    let properties: Vec<i32> = re.captures_iter(input).map(|cap| {
+    let properties: Vec<i32> = re.captures_iter(input).flat_map(|cap| {
         [cap["a"].parse().unwrap(), cap["b"].parse().unwrap(), cap["c"].parse().unwrap(), cap["d"].parse().unwrap()]
-    }).flatten().collect_vec();
+    }).collect_vec();
     let ningredients = properties.len()/4;
-    let a = DMatrix::from_iterator(4, ningredients, properties.into_iter());
-    a
+    DMatrix::from_iterator(4, ningredients, properties)
 }
 
 fn parse_calories(input: &str) -> DVector<i32> {

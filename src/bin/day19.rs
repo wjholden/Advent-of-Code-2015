@@ -14,7 +14,7 @@ struct TrieNode {
 
 impl TrieNode {
     fn count(&self) -> usize {
-        self.children.iter().map(|(_,v)| v.count()).sum::<usize>() + 
+        self.children.values().map(|v| v.count()).sum::<usize>() + 
         if self.terminus { 1 } else { 0 }
     }
 }
@@ -58,8 +58,8 @@ fn parse(input: &str) -> (BTreeMap<&str, Vec<&str>>, &str) {
     let rules = s.next().unwrap().lines().map(|line| {
         let mut l = line.split(" => ");
         (l.next().unwrap(), l.next().unwrap())
-    }).fold(BTreeMap::new(), |mut acc, (k,v)| {
-       acc.entry(k).or_insert(vec![]).push(v);
+    }).fold(BTreeMap::new(), |mut acc: BTreeMap<&str, Vec<&str>>, (k,v)| {
+       acc.entry(k).or_default().push(v);
        acc
     });
     (rules, s.next().unwrap())
@@ -74,12 +74,9 @@ fn part1(input: &str) -> usize {
         let rest = &input[i..];
         //println!("{left} and {rest}");
         for (k,v) in &rules {
-            if rest.starts_with(k) {
-                let right = &rest[k.len()..];
-                for &replacement in v {
-                    let s = format!("{left}{replacement}{right}");
-                    //println!("{s}");
-                    trie.insert(&s);
+            if let Some(right) = rest.strip_prefix(k) {
+                for replacement in v {
+                    trie.insert(&format!("{left}{replacement}{right}"))
                 }
                 break
             }

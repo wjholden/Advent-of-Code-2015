@@ -2,14 +2,14 @@ use std::process::Command;
 
 fn main() {
     let puzzle = include_str!("../../puzzles/day12.json").trim();
-    println!("Part 1: {}", part1(&puzzle));
+    println!("Part 1: {}", part1(puzzle));
     println!("Part 2: {}", part2("puzzles/day12.json"));
 }
 
 fn part1(input: &str) -> i64 {
     let re = regex::Regex::new(r"-?\d+").unwrap();
     re.captures_iter(input).map(|captures| {
-        (&captures[0]).parse::<i64>().unwrap()
+        captures[0].parse::<i64>().unwrap()
     }).sum()
 }
 

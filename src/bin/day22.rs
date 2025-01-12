@@ -79,7 +79,7 @@ fn dfs(spells: &mut Vec<Spell>) -> i16 {
         Spell::Shield,
         Spell::Recharge,
     ] {
-        if spells.len() > 0 && spell == spells[spells.len() - 1] {
+        if !spells.is_empty() && spell == spells[spells.len() - 1] {
             continue
         }
 
@@ -90,7 +90,7 @@ fn dfs(spells: &mut Vec<Spell>) -> i16 {
         };
         let boss = Player::new_boss();
         spells.push(spell);
-        mana = mana.min(match battle(player, boss, &spells, 500, &Mode::Easy) {
+        mana = mana.min(match battle(player, boss, spells, 500, &Mode::Easy) {
             Outcome::Win(x) => x,
             Outcome::Lose => mana,
             Outcome::Incomplete(_) => dfs(spells),
@@ -107,10 +107,10 @@ enum Mode {
 }
 
 fn battle(mut player: Player, mut boss: Player, spells: &[Spell], mana: i16, mode: &Mode) -> Outcome {
-    let mut cast: HashMap<&Spell, i8> = HashMap::new();
+    let mut cast: HashMap<&Spell, u8> = HashMap::new();
     let mut spells = VecDeque::from_iter(spells);
     let mut turn = 0;
-    let mut mana = mana.clone();
+    let mut mana = mana;
     let mut mana_spent = 0;
 
     loop {
@@ -198,13 +198,7 @@ fn battle(mut player: Player, mut boss: Player, spells: &[Spell], mana: i16, mod
             }
 
             // effect spells
-            let effect_turns = match spell {
-                Spell::Shield => 6,
-                Spell::Poison => 6,
-                Spell::Recharge => 5,
-                _ => 0,
-            };
-
+            let effect_turns = spell.turns();
             if effect_turns > 0 {
                 *cast.get_mut(spell).unwrap() = effect_turns;
             }
@@ -248,6 +242,15 @@ impl Spell {
             Spell::Shield => 113,
             Spell::Poison => 173,
             Spell::Recharge => 229,
+        }
+    }
+
+    fn turns(&self) -> u8 {
+        match self {
+            Spell::Shield => 6,
+            Spell::Poison => 6,
+            Spell::Recharge => 5,
+            _ => 0,
         }
     }
 }

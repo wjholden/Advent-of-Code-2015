@@ -44,12 +44,9 @@ fn get_memoized<'a>(
         return *cache.get(wire).unwrap();
     }
 
-    match wire.parse::<u16>() {
-        Ok(n) => {
-            cache.insert(wire, n);
-            return n;
-        } // "wire" is an integer literal
-        _ => (),
+    if let Ok(n) = wire.parse() {
+        cache.insert(wire, n);
+        return n
     }
 
     let source: Vec<&str> = circuit.get(wire).unwrap().split(" ").collect();

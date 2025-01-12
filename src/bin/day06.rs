@@ -59,7 +59,7 @@ fn main() {
     println!("Part 2: {}", total_brightness(&lights));
 }
 
-fn count_on(lights: &Vec<Light>) -> u64 {
+fn count_on(lights: &[Light]) -> u64 {
     lights
         .iter()
         .map(|l| match l.state {
@@ -69,12 +69,12 @@ fn count_on(lights: &Vec<Light>) -> u64 {
         .sum()
 }
 
-fn total_brightness(lights: &Vec<Light>) -> u64 {
+fn total_brightness(lights: &[Light]) -> u64 {
     lights.iter().map(|l| l.brightness).sum()
 }
 
 fn set_range(
-    lights: &mut Vec<Light>,
+    lights: &mut [Light],
     action: Action,
     xmin: usize,
     ymin: usize,

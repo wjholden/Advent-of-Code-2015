@@ -1,7 +1,7 @@
 fn main() {
     let puzzle = include_str!("../../puzzles/day14.txt").trim();
-    println!("Part 1: {}", part1(&puzzle, 2503));
-    println!("Part 2: {}", part2(&puzzle, 2503));
+    println!("Part 1: {}", part1(puzzle, 2503));
+    println!("Part 2: {}", part2(puzzle, 2503));
 }
 
 fn part1(input: &str, time: u64) -> u64 {

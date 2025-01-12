@@ -12,15 +12,13 @@ fn search(key: &str, zeros: u8) -> u64 {
     }
     let mut i = 0;
     loop {
-        if zeros == 5 && find_5_0s(&key, i) {
-            break;
-        } else if zeros == 6 && find_6_0s(&key, i) {
-            break;
+        if (zeros == 5 && find_5_0s(key, i)) ||
+            (zeros == 6 && find_6_0s(key, i)) {
+            return i
         } else {
             i += 1;
         }
     }
-    return i;
 }
 
 fn find_5_0s(key: &str, suffix: u64) -> bool {

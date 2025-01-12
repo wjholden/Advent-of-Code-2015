@@ -46,8 +46,8 @@ fn part2(input: &str) -> u64 {
 }
 
 fn min2(vec: &Vec<u64>) -> (u64, u64) {
-    let mut a = std::u64::MAX;
-    let mut b = std::u64::MAX;
+    let mut a = u64::MAX;
+    let mut b = u64::MAX;
     for i in vec {
         let i = *i;
         if i < a {
@@ -56,7 +56,7 @@ fn min2(vec: &Vec<u64>) -> (u64, u64) {
             b = i;
         }
     }
-    return (a, b);
+    (a, b)
 }
 
 #[cfg(test)]

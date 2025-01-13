@@ -1,3 +1,5 @@
+use std::{num::ParseIntError, str::FromStr};
+
 use itertools::Itertools;
 use lazy_static::lazy_static;
 use regex::Regex;
@@ -96,21 +98,23 @@ struct GameItem {
     armor: i8,
 }
 
-impl GameItem {
-    fn new(line: &str) -> GameItem {
+impl FromStr for GameItem {
+    type Err = ParseIntError;
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
         lazy_static! {
             static ref RE: Regex = regex::Regex::new("  +").unwrap();
         }
         // Skip the item name, we don't need it.
-        let mut line = RE.split(line).skip(1);
-        let cost = line.next().unwrap().parse().unwrap();
-        let damage = line.next().unwrap().parse().unwrap();
-        let armor = line.next().unwrap().parse().unwrap();
-        GameItem {
+        let mut line = RE.split(s).skip(1);
+        let cost = line.next().unwrap().parse()?;
+        let damage = line.next().unwrap().parse()?;
+        let armor = line.next().unwrap().parse()?;
+        Ok(GameItem {
             cost,
             damage,
             armor,
-        }
+        })
     }
 }
 
@@ -137,15 +141,15 @@ Defense +2   40     0       2
 Defense +3   80     0       3";
 
 fn weapons() -> impl Iterator<Item = GameItem> {
-    ITEM_SHOP.lines().skip(1).take(5).map(GameItem::new)
+    ITEM_SHOP.lines().skip(1).take(5).flat_map(GameItem::from_str)
 }
 
 fn armor() -> impl Iterator<Item = GameItem> {
-    ITEM_SHOP.lines().skip(8).take(5).map(GameItem::new)
+    ITEM_SHOP.lines().skip(8).take(5).flat_map(GameItem::from_str)
 }
 
 fn rings() -> impl Iterator<Item = GameItem> {
-    ITEM_SHOP.lines().skip(15).take(6).map(GameItem::new)
+    ITEM_SHOP.lines().skip(15).take(6).flat_map(GameItem::from_str)
 }
 
 fn boss() -> Player {

@@ -28,38 +28,35 @@ fn run(input: &str, part: Part) -> BTreeMap<&str, usize> {
     registers.insert("b", 0);
     let mut i = 0i32;
     while i < instructions.len() as i32 {
-        let instruction = instructions[i as usize][0];
-        let param = instructions[i as usize][1];
-
-        match instruction {
-            "hlf" => {
-                *registers.get_mut(param).unwrap() /= 2;
-                i += 1;
-            }
-            "tpl" => {
-                *registers.get_mut(param).unwrap() *= 3;
-                i += 1;
+        i += match instructions[i as usize].as_slice() {
+            ["hlf", r] => {
+                *registers.get_mut(*r).unwrap() /= 2;
+                1
             },
-            "inc" => {
-                *registers.get_mut(param).unwrap() += 1;
-                i += 1;
+            ["tpl", r] => {
+                *registers.get_mut(*r).unwrap() *= 3;
+                1
             },
-            "jmp" => {
-                i += param.parse::<i32>().unwrap();
+            ["inc", r] => {
+                *registers.get_mut(*r).unwrap() += 1;
+                1
             },
-            "jie" => {
-                i += if *registers.get(param).unwrap() % 2 == 0 {
-                    instructions[i as usize][2].parse().unwrap()
+            ["jmp", offset] => {
+                offset.parse().unwrap()
+            },
+            ["jie", r, offset] => {
+                if *registers.get(*r).unwrap() % 2 == 0 {
+                    offset.parse().unwrap()
                 } else {
                     1
-                };
+                }
             },
-            "jio" => {
-                i += if *registers.get(param).unwrap() == 1 {
-                    instructions[i as usize][2].parse().unwrap()
+            ["jio", r, offset] => {
+                if *registers.get(*r).unwrap() == 1 {
+                    offset.parse().unwrap()
                 } else {
                     1
-                };
+                }
             },
             _ => unreachable!()
         }

@@ -3,8 +3,9 @@ use std::fs;
 fn main() {
     let puzzle = fs::read_to_string("puzzles/day01.txt").unwrap();
 
-    println!("Part 1: {}",  floor(&puzzle).0);
-    println!("Part 2: {}", floor(&puzzle).1);
+    let (part1, part2) = floor(&puzzle);
+    println!("Part 1: {}", part1);
+    println!("Part 2: {}", part2);
 }
 
 fn floor(instructions: &str) -> (i32, i32) {

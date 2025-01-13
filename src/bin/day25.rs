@@ -10,8 +10,6 @@ fn part1(_input: &str) -> usize {
 
 #[cfg(test)]
 mod day25 {
-    use std::assert_eq;
-
     use super::*;
 
     const SAMPLE: &str = "";

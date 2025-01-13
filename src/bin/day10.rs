@@ -36,8 +36,6 @@ fn look_and_say(x: Vec<u32>) -> Vec<u32> {
 
 #[cfg(test)]
 mod day10 {
-    use std::assert_eq;
-
     use super::*;
 
     #[test]

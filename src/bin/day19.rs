@@ -125,8 +125,6 @@ HOHOHO";
 
 #[cfg(test)]
 mod day19 {
-    use std::assert_eq;
-
     use super::*;
 
     const SAMPLE1: &str = "H => HO

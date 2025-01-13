@@ -23,8 +23,6 @@ fn part2(input: &str) -> String {
 
 #[cfg(test)]
 mod day12 {
-    use std::assert_eq;
-
     use super::*;
 
     #[test]

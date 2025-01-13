@@ -83,8 +83,6 @@ fn lose(input: &str) -> IResult<&str, i32> {
 
 #[cfg(test)]
 mod day13 {
-    use std::assert_eq;
-
     use super::*;
 
     const SAMPLE: &str = "Alice would gain 54 happiness units by sitting next to Bob.

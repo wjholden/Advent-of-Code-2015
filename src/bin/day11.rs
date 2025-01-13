@@ -71,8 +71,6 @@ fn two_pairs(input: &str) -> bool {
 
 #[cfg(test)]
 mod day11 {
-    use std::assert_eq;
-
     use super::*;
 
     #[test]

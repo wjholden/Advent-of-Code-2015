@@ -65,8 +65,6 @@ fn parse(input: &str) -> Vec<Reindeer> {
 
 #[cfg(test)]
 mod day14 {
-    use std::assert_eq;
-
     use super::*;
 
     const SAMPLE: &str = "Comet can fly 14 km/s for 10 seconds, but then must rest for 127 seconds.

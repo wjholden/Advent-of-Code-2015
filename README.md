@@ -24,7 +24,7 @@
 20. `**` [Integer sequences](https://oeis.org/A000203)
 21. `**` RPG, combinatorics (surprisingly small), functional approach works better than expected
 22. `**` Another RPG! Combinatorics with larger $n$, BFS works with greedy approach where DFS is intractable.
-23. `  ` 
+23. `**` Assembly language
 24. `  ` 
 25. `  ` 
 
@@ -57,6 +57,7 @@ Luckily, Julia's `JSON3.read` can automatically guess that short input strings a
 * Multithreading with Rayon is very cool, but it might not always help. In day 15, it actually made things slower.
 * You can separate `match` cases to the same arm with `|`.
 * Looks like Rust does have Java-style method references. For example, `map(Vec::len)`.
+* Rust's `usize` makes array index arithmetic annoying when you want to have `a[i+j]` where `j` might be negative.
 
 ## Documentation
 

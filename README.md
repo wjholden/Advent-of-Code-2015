@@ -24,7 +24,7 @@
 20. `**` [Integer sequences](https://oeis.org/A000203)
 21. `**` RPG, combinatorics (surprisingly small), functional approach works better than expected
 22. `**` Another RPG! Combinatorics with larger $n$, BFS works with greedy approach where DFS is intractable.
-23. `**` Assembly language
+23. `**` Assembly language, variable-length arrays
 24. `  ` 
 25. `  ` 
 

@@ -25,8 +25,8 @@
 21. `**` RPG, combinatorics (surprisingly small), functional approach works better than expected
 22. `**` Another RPG! Combinatorics with larger $n$, BFS works with greedy approach where DFS is intractable.
 23. `**` Assembly language, variable-length arrays
-24. `* ` 3-Partition Problem
-25. `  ` 
+24. `**` 3-Partition Problem
+25. `**` Basic loops, modulo arithmetic
 
 ## Lessons Learned
 

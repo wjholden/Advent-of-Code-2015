@@ -44,7 +44,7 @@ fn part1(packages: &[u64]) -> Option<u64> {
     let lower_bound = smallest_candidate_solution(packages, third);
 
     for k in lower_bound.. {
-        let solutions = packages.iter().copied().combinations(k).filter(|combo| combo.into_iter().sum::<u64>() == third);
+        let solutions = packages.iter().copied().combinations(k).filter(|combo| combo.iter().sum::<u64>() == third);
         if let Some(min) = solutions.map(|s| s.into_iter().product()).min() {
             return Some(min)
         }
@@ -95,7 +95,7 @@ fn greedy_find(total: u64, candidates: &[u64], packages: &[u64], solution: &mut 
     if total == 0 {
         // The sum of the candidate solution is 1/3 of the original input,
         // but we need to test if the other 2/3s can be cleanly split in half.
-        let rest = slice_diff(packages, &solution);
+        let rest = slice_diff(packages, solution);
         if is_bisectable(&rest) {
             Some(1)
         } else {
@@ -168,7 +168,7 @@ fn is_bisectable(x: &[u64]) -> bool {
 #[allow(dead_code)]
 fn is_3_partitionable<T: std::cmp::PartialEq + Add<Output = T> + Copy + Display + Debug + PartialOrd>(a: &[T], x: T, y: T, z: T, goal: T) -> bool {
     if a.is_empty() {
-        return x == y && y == z
+        x == y && y == z
     } else {
         (x + a[0] <= goal && is_3_partitionable(&a[1..], x+a[0], y, z, goal)) ||
         (y + a[0] <= goal && is_3_partitionable(&a[1..], x, y+a[0], z, goal)) ||

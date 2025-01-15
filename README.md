@@ -37,7 +37,7 @@ a `.go` file, but I never got comfortable with `go install` and `go get` from Gi
 [multiple binary crates](https://doc.rust-lang.org/book/ch07-01-packages-and-crates.html)
 in the `src\bin` directory. This is the structure I'm using for Advent of Code.
 * Calls to `dbg!` and `assert!` transfer ownership of the arguments. This means
-you need to pass references (`&`) instead of values.
+you need to pass ref-erences (`&`) instead of values.
 * Tests in Rust are excellent! Use `cargo test` for all your testing needs. See day 4.
 * I would be interested to go back to day 4 to do this in parallel. This would have been easy in Go.
 * Looks like the compiler will (at least, by default) completely ignore errors (including syntax errors) in your tests.
@@ -58,6 +58,8 @@ Luckily, Julia's `JSON3.read` can automatically guess that short input strings a
 * You can separate `match` cases to the same arm with `|`.
 * Looks like Rust does have Java-style method references. For example, `map(Vec::len)`.
 * Rust's `usize` makes array index arithmetic annoying when you want to have `a[i+j]` where `j` might be negative.
+* Clippy is fantastic!
+* Day 24 looked a lot harder than it really was.
 
 ## Documentation
 
